@@ -1,0 +1,12 @@
+version: '3' # Compose file version
+services:
+    server:
+        network_mode: host # sharing the same network of host machine inside docker container
+        build: server/  # path to the build context
+        ports: # server port
+          - 5000:5000
+    client:
+        network_mode: host # sharing the same network of host machine inside docker container
+        build: client/ # path to the build context
+        command: python client.py # start client.py after build 
+        
